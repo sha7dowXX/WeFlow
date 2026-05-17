@@ -6028,10 +6028,12 @@ function ChatPage(props: ChatPageProps) {
       pendingMessageAnalysisJumpRef.current = pendingTarget
       if (currentSessionId !== urlSessionId) {
         selectSessionById(urlSessionId)
+        navigate('/chat', { replace: true })
         return
       }
       if (!jumpToMessageAnalysisTarget(pendingTarget, 'auto')) {
         requestMessageAnalysisWindowLoad(pendingTarget)
+        navigate('/chat', { replace: true })
       }
       return
     }
@@ -6087,6 +6089,12 @@ function ChatPage(props: ChatPageProps) {
     if (currentSessionId !== pending.sessionId) return
     if (jumpToMessageAnalysisTarget(pending, 'auto')) return
     if (isLoadingMessages || isSessionSwitching) return
+    const loadKey = `${pending.sessionId}:${Math.floor(Number(pending.localId || 0))}:${Math.floor(Number(pending.createTime || 0))}`
+    if (messageAnalysisJumpLoadKeyRef.current === loadKey) {
+      pendingMessageAnalysisJumpRef.current = null
+      messageAnalysisJumpLoadKeyRef.current = null
+      return
+    }
     requestMessageAnalysisWindowLoad(pending)
   }, [
     isConnected,
