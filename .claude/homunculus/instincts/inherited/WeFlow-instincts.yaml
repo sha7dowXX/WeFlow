@@ -1,0 +1,520 @@
+# Instincts generated from https://github.com/sha7dowXX/WeFlow
+# Generated: 2026-05-29T12:27:44.648Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: WeFlow-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Commit Length
+
+## Action
+
+Keep commit messages concise (~45 characters)
+
+## Evidence
+
+- Average commit message length: 45 chars
+- Based on 100 commits
+
+---
+id: WeFlow-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: WeFlow-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: WeFlow-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: WeFlow-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: components, pages, services, stores, styles
+
+---
+id: WeFlow-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: WeFlow-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~7x per month
+- Files: electron/*, electron/services/*, src/pages/*
+
+---
+id: WeFlow-workflow-ai-insights-feature-development
+trigger: "when doing ai insights feature development"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Workflow Ai Insights Feature Development
+
+## Action
+
+Follow the ai-insights-feature-development workflow:
+1. Edit or create electron/services/insightService.ts for core logic.
+2. Edit electron/services/config.ts and src/services/config.ts for configuration changes.
+3. Update src/pages/SettingsPage.tsx to expose new settings or UI.
+4. Optionally update electron/main.ts or electron/preload.ts for IPC or integration.
+5. Merge via pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: electron/services/insightService.ts, electron/services/config.ts, src/services/config.ts
+
+---
+id: WeFlow-workflow-package-json-maintenance
+trigger: "when doing package json maintenance"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Workflow Package Json Maintenance
+
+## Action
+
+Follow the package-json-maintenance workflow:
+1. Edit package.json to update fields (repository, dependencies, build config, etc).
+2. Optionally merge via pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: package.json
+
+---
+id: WeFlow-workflow-github-actions-workflow-update
+trigger: "when doing github actions workflow update"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Workflow Github Actions Workflow Update
+
+## Action
+
+Follow the github-actions-workflow-update workflow:
+1. Edit one or more files under .github/workflows/ (e.g., release.yml, dev-daily-fixed.yml, preview-nightly-main.yml).
+2. Optionally merge via pull request.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: .github/workflows/release.yml, .github/workflows/dev-daily-fixed.yml, .github/workflows/preview-nightly-main.yml
+
+---
+id: WeFlow-workflow-feature-development-with-merge
+trigger: "when doing feature development with merge"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/sha7dowXX/WeFlow
+---
+
+# WeFlow Workflow Feature Development With Merge
+
+## Action
+
+Follow the feature-development-with-merge workflow:
+1. Edit or create multiple related source files (e.g., services, pages, configs).
+2. Push commits.
+3. Merge via pull request, often with the same files as the implementation.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: electron/services/*.ts, src/pages/*.tsx, src/services/*.ts
+
+---
+id: weflow-instinct-filename-camelcase
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Filename Camelcase
+
+## Action
+
+Name the file using camelCase (e.g., insightService.ts)
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files: camelCase
+- Seen in files like electron/services/insightService.ts
+
+---
+id: weflow-instinct-function-camelcase
+trigger: "When writing or naming a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Function Camelcase
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions: camelCase
+
+---
+id: weflow-instinct-class-pascalcase
+trigger: "When creating a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Class Pascalcase
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes: PascalCase
+
+---
+id: weflow-instinct-constant-screaming-snake-case
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Constant Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: weflow-instinct-import-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle: relative
+
+---
+id: weflow-instinct-export-named
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle: named
+
+---
+id: weflow-instinct-try-catch-error-handling
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Try Catch Error Handling
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style: try-catch
+
+---
+id: weflow-instinct-test-location-separate
+trigger: "When adding or updating tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Test Location Separate
+
+## Action
+
+Place test files in a separate test directory, not alongside source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation: separate
+
+---
+id: weflow-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Commit Prefix
+
+## Action
+
+Prefix the commit message with fix, feat, chore, or refactor as appropriate
+
+## Evidence
+
+- Pattern in commits.prefixes: [fix, feat, chore]
+- Seen in commit: fix(export): 补全导出弹窗中缺失的 Excel 完整列切换开关 (fix #529)
+- Seen in commit: feat: implement AI insights service and settings tab
+
+---
+id: weflow-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Commit Length
+
+## Action
+
+Keep commit messages concise, around 45 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 45
+
+---
+id: weflow-instinct-ai-insights-workflow
+trigger: "When adding or updating AI insights functionality"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Ai Insights Workflow
+
+## Action
+
+Edit electron/services/insightService.ts, update related config files, update SettingsPage UI, and merge via pull request
+
+## Evidence
+
+- Workflow: ai-insights-feature-development
+- Seen in commits: feat: implement AI insights service and settings tab
+- Pattern in files: electron/services/insightService.ts, src/pages/SettingsPage.tsx
+
+---
+id: weflow-instinct-package-json-maintenance
+trigger: "When fixing build issues, updating repository info, or changing dependencies"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Package Json Maintenance
+
+## Action
+
+Edit package.json and optionally merge via pull request
+
+## Evidence
+
+- Workflow: package-json-maintenance
+- Seen in commit: Update repository URL in package.json
+
+---
+id: weflow-instinct-github-actions-update
+trigger: "When fixing or enhancing CI/CD pipelines"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Github Actions Update
+
+## Action
+
+Edit .github/workflows/*.yml files and optionally merge via pull request
+
+## Evidence
+
+- Workflow: github-actions-workflow-update
+- Pattern in files: .github/workflows/release.yml
+
+---
+id: weflow-instinct-feature-development-merge
+trigger: "When developing a feature or bugfix that spans multiple files/services"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: sha7dowXX/WeFlow
+---
+
+# Weflow Instinct Feature Development Merge
+
+## Action
+
+Edit related source files, push commits, and merge via pull request
+
+## Evidence
+
+- Workflow: feature-development-with-merge
+- Pattern in files: electron/services/*.ts, src/pages/*.tsx
+
